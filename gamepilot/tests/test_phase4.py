@@ -16,7 +16,9 @@ class Phase4Tests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix="gamepilot_config_")
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        # Windows runners may expose TEMP through an 8.3 path alias.
+        # Match the resolved resource root used by the application.
+        self.root = Path(self.temp.name).resolve()
 
     def test_configuration_round_trip_and_region_preserves_other_options(self):
         with patch.object(config, "DATA", self.root), patch.object(config, "ROOT", self.root):
