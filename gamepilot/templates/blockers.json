@@ -1,0 +1,14 @@
+[
+  {
+    "name": "network_error",
+    "file": "network_error_text.png",
+    "search_box": [
+      500,
+      460,
+      1250,
+      710
+    ],
+    "threshold": 0.92,
+    "reason": "游戏提示网络异常/重新连接，已暂停；不重复点击、不调整网络"
+  }
+]
